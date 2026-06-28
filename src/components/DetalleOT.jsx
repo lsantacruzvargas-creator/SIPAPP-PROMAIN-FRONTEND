@@ -105,7 +105,7 @@ export default function DetalleOT() {
       {/* Lightbox */}
       {lightbox && (
         <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4" onClick={() => setLightbox(null)}>
-          <img src={`http://localhost:3000${lightbox}`} alt="" className="max-w-full max-h-full rounded-lg object-contain" onClick={e => e.stopPropagation()} />
+          <img src={lightbox} alt="" className="max-w-full max-h-full rounded-lg object-contain" onClick={e => e.stopPropagation()} />
           <button onClick={() => setLightbox(null)} className="absolute top-4 right-4 text-white text-3xl">&times;</button>
         </div>
       )}
@@ -335,7 +335,7 @@ export default function DetalleOT() {
                 {fotos.map((foto) => (
                   <div key={foto._id} className="relative group">
                     <img
-                      src={`http://localhost:3000${foto.url}`}
+                      src={foto.url}
                       alt={foto.nombre}
                       className="w-full h-20 object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
                       onClick={() => setLightbox(foto.url)}
@@ -361,7 +361,7 @@ export default function DetalleOT() {
                       <span className="text-sm text-gray-700 truncate">{arch.nombre}</span>
                     </div>
                     <div className="flex gap-1 shrink-0">
-                      <a href={`http://localhost:3000${arch.url}`} download={arch.nombre} className="text-blue-500 hover:text-blue-700 text-xs">↓</a>
+                      <a href={arch.url} target="_blank" rel="noreferrer" className="text-blue-500 hover:text-blue-700 text-xs">↓</a>
                       {puedeEditar && !anulada && (
                         <button onClick={() => handleEliminarDoc(arch._id)} className="text-red-400 hover:text-red-600 text-xs ml-1">✕</button>
                       )}
